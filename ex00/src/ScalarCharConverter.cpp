@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:48:40 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/08 11:32:18 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:14:22 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,10 @@ bool ScalarCharConverter::_isCharInt(const std::string& literal)
     if (literal.empty())
         return false;
 
-    int sign = 1;
     std::size_t i = 0;
 
-    if (literal[i] == '+' || literal[i] == '-') {
-        if (literal[i] == '-')
-            sign = -1;
+    if (literal[i] == '+' || literal[i] == '-')
         ++i;
-    }
 
     if (i == literal.size())
         return false;
@@ -55,24 +51,18 @@ bool ScalarCharConverter::_isCharInt(const std::string& literal)
         int digit = literal[i] - '0';
         value = value * 10 + digit;
 
-        // early overflow guard in long (optional but safe)
         if (value > std::numeric_limits<int>::max())
             return false;
     }
-
-    value *= sign;
-
-    // Now check that it fits in char range
-    if (value < std::numeric_limits<char>::min() ||
-        value > std::numeric_limits<char>::max())
-        return false;
-
     return true;
 }
 
-void ScalarCharConverter::_printChar(char c)
+void ScalarCharConverter::_printChar(int c)
 {
-	std::cout << "char: '" << c << "'" << std::endl;
+	if (!std::isprint(c))
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(c) << "'" << std::endl;
 }
 
 void ScalarCharConverter::printConvertedChar(

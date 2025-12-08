@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:47:13 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/08 11:05:58 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:12:11 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScalarCharConverter
 
 		static bool _isChar(const std::string& literal);
 		static bool _isCharInt(const std::string& literal);
-		static void _printChar(char c);
+		static void _printChar(int c);
 
 		static char _getCharFromLiteral(const std::string& literal);
 
