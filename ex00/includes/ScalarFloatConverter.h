@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 12:19:39 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/08 12:28:47 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:43:08 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class ScalarFloatConverter
 {
 private:
-public:
 	ScalarFloatConverter();
 	ScalarFloatConverter(const ScalarFloatConverter& other);
 	ScalarFloatConverter& operator=(const ScalarFloatConverter& other);
 	~ScalarFloatConverter();
 
+public:
 	static void printConvertedFloat(const std::string& literal);
 };
 

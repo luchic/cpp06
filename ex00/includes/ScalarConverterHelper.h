@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 18:46:39 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/07 18:51:43 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:41:06 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,7 @@ private:
 	~ScalarConverterHelper() = default;
 
 public:
-
-
-	static std::string charRepresentation(const std::string& literal);
-	static std::string intRepresentation(const std::string& literal);
-	static std::string floatRepresentation(const std::string& literal);
-	static std::string doubleRepresentation(const std::string& literal);
+	static bool isPseudoLiteral(const std::string& literal);
 };
 
 
