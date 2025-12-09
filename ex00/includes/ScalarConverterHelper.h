@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 18:46:39 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/08 12:41:06 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/09 13:16:24 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ private:
 
 public:
 	static bool isPseudoLiteral(const std::string& literal);
+	static bool isFloatLiteral(const std::string& literal);
+	static bool isCharLiteral(const std::string& literal);
+	static bool isPseudoLiteralDouble(const std::string& literal);
+	static bool isPseudoLiteralFloat(const std::string& literal);
 };
-
 
 #endif
