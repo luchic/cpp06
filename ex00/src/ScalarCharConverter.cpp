@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:48:40 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/08 12:14:22 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:36:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ bool ScalarCharConverter::_isCharInt(const std::string& literal)
         return false;
 
     std::size_t i = 0;
+	if (ScalarConverterHelper::isFloatLiteral(literal))
+		return true;
 
     if (literal[i] == '+' || literal[i] == '-')
         ++i;
@@ -68,7 +70,9 @@ void ScalarCharConverter::_printChar(int c)
 void ScalarCharConverter::printConvertedChar(
 	const std::string& literal)
 {
-	if (_isChar(literal))
+	if (ScalarConverterHelper::isPseudoLiteral(literal))
+		std::cout << "char: impossible" <<  std::endl;
+	else if (_isChar(literal))
 		_printChar(literal[0]);
 	else if (_isCharInt(literal))
 		_printChar(_getCharFromLiteral(literal));
