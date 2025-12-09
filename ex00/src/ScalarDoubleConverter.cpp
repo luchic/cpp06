@@ -6,16 +6,56 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 12:45:48 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/08 12:46:05 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:04:29 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScalarDoubleConverter.h"
+#include "../includes/ScalarConverterHelper.h"
 #include <iostream>
 #include <stdexcept>
 
+void ScalarDoubleConverter::_printPseudoLiteral(const std::string& literal)
+{
+	if (ScalarConverterHelper::isPseudoLiteral(literal))
+	{
+		std::cout << "double: ";
+		if (ScalarConverterHelper::isPseudoLiteralDouble(literal))
+			std::cout << literal << std::endl;
+		else
+		{
+			std::string trimmedLiteral = literal.substr(0, literal.length() - 1);
+			std::cout << trimmedLiteral << std::endl;
+		}
+	}
+}
+
+void ScalarDoubleConverter::_printCharLiteral(char c)
+{
+	float floatValue = static_cast<float>(c);
+	std::cout << "double: " << floatValue << ".0" << std::endl;
+}
+
 void ScalarDoubleConverter::printConvertedDouble(const std::string& literal)
 {
+	if (ScalarConverterHelper::isPseudoLiteral(literal))
+	{
+		_printPseudoLiteral(literal);
+		return;
+	}
+	
+	if (ScalarConverterHelper::isCharLiteral(literal))
+	{
+		_printCharLiteral(literal[0]);
+		return;
+	}
+
+	 if (!ScalarConverterHelper::isFloatLiteral(literal))
+	{
+		std::cout << "float: impossible" << std::endl;
+		return;
+	}
+
 	try 
 	{
 		double doubleValue = std::stod(literal);
