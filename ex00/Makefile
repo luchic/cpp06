@@ -1,16 +1,21 @@
-NAME = bureaucrat
+NAME = convert
 
 SRC_FOLDER = src
 OBJ_FOLDER = out
 INCLUDES = includes
 
-SRC_FILES = Bureaucrat.cpp \
+SRC_FILES = ScalarCharConverter.cpp \
+			ScalarIntConverter.cpp \
+			ScalarFloatConverter.cpp \
+			ScalarDoubleConverter.cpp \
+			ScalarConverterHelper.cpp \
+			ScalarConverter.cpp \
 			main.cpp
 
 OBJ_FILES = $(addprefix $(OBJ_FOLDER)/, $(SRC_FILES:.cpp=.o))
 
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++17
+CXXFLAGS = -g -Wall -Wextra -Werror -std=c++17
 
 all: $(NAME)
 
