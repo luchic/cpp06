@@ -4,3 +4,4 @@ out_debug/
 .vscode/
 *.out
 convert
+serializer
