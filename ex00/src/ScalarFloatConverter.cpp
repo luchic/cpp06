@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 12:24:48 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/09 14:04:18 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/09 16:04:07 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <iomanip>
+#include <sstream>
+#include <limits>
 
 // TODO: Add Check of float.
 /*
@@ -39,7 +42,27 @@ void ScalarFloatConverter::_printPseudoLiteral(const std::string& literal)
 void ScalarFloatConverter::_printCharLiteral(char c)
 {
 	float floatValue = static_cast<float>(c);
-	std::cout << "float: " << floatValue << ".0f" << std::endl;
+	std::cout << "float: " << _formatFloatValue(floatValue) << "f" << std::endl;
+}
+
+std::string ScalarFloatConverter::_formatFloatValue(float value)
+{
+    std::ostringstream oss;
+
+    oss << std::fixed << std::setprecision(6) << value;
+    std::string res = oss.str();
+
+	std::size_t dotPos = res.find('.');
+    if (dotPos != std::string::npos) {
+        std::size_t lastNonZero = res.find_last_not_of('0');
+        if (lastNonZero != std::string::npos && lastNonZero > dotPos) {
+            res.erase(lastNonZero + 1);
+        } else if (lastNonZero != std::string::npos) {
+            res.erase(dotPos + 2);
+        }
+    }
+
+    return res;
 }
 
 void ScalarFloatConverter::printConvertedFloat(const std::string& literal)
@@ -64,11 +87,9 @@ void ScalarFloatConverter::printConvertedFloat(const std::string& literal)
 	
 	try 
 	{
-		float floatValue = std::stof(literal);
-		std::cout << "float: " << floatValue;
-		if (floatValue - static_cast<int>(floatValue) == 0)
-			std::cout << ".0";
-		std::cout << "f" << std::endl;
+        float floatValue = std::stof(literal);
+        std::cout << "float: "
+			<< _formatFloatValue(floatValue) << "f" << std::endl;
 	}
 	catch (const std::invalid_argument& e)
 	{

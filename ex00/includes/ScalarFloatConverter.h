@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 12:19:39 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/09 13:15:59 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/09 15:34:28 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
 
 	static void _printPseudoLiteral(const std::string& literal);
 	static void _printCharLiteral(char c);
+	static std::string _formatFloatValue(float value);
 
 public:
 	static void printConvertedFloat(const std::string& literal);
