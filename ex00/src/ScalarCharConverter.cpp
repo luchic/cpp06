@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:48:40 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/09 15:18:49 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:42:40 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ bool ScalarCharConverter::_isChar(const std::string& literal)
 			!std::isdigit(literal[0]));
 }
 
-// TODO: First verstion rebuild
 bool ScalarCharConverter::_isCharInt(const std::string& literal)
 {
     if (literal.empty())

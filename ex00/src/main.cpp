@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:22:35 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/10 11:32:43 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/26 17:11:02 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,13 @@ int main(int argc, char** argv)
 	(void)argc;
 	(void)argv;
 	
-	test();
-	// ScalarConverter::convert("2147483648");
-	// if (argc != 2)
-	// {
-	// 	std::cerr << "Usage: ./scalar_converter <literal_value>" << std::endl;
-	// 	return 1;
-	// }
-	// std::string literal = std::string(argv[1]);
-	// ScalarConverter::convert(literal);
+	// test();
+	if (argc != 2)
+	{
+		std::cerr << "Usage: ./scalar_converter <literal_value>" << std::endl;
+		return 1;
+	}
+	std::string literal = std::string(argv[1]);
+	ScalarConverter::convert(literal);
 	return 0;
 }

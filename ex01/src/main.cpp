@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:22:35 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/10 12:27:16 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/26 17:11:48 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int main()
 	Data data(42);
 	
 	std::cout << "Original Data value: " << data.getValue() << std::endl;
-	uintptr_t raw = Serializer::serialize(&data);
-	Data* deserializedData = Serializer::deserialize(raw);
+	uintptr_t ptr = Serializer::serialize(&data);
+	Data* deserializedData = Serializer::deserialize(ptr);
 	std::cout << "Deserialized Data value: " << deserializedData->getValue() << std::endl;
 	return 0;
 }

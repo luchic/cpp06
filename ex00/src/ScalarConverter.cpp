@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 18:36:01 by nluchini          #+#    #+#             */
-/*   Updated: 2025/12/09 14:35:53 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/12/26 15:21:01 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ScalarConverter::convert(const std::string& literal)
 	ScalarCharConverter::printConvertedChar(literal);
 	ScalarIntConverter::printConvertedInt(literal);
 	ScalarFloatConverter::printConvertedFloat(literal);
-	ScalarDoubleConverter::printConvertedDouble(literal);	
+	ScalarDoubleConverter::printConvertedDouble(literal);
 }
