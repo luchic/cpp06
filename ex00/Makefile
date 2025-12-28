@@ -15,14 +15,14 @@ SRC_FILES = ScalarCharConverter.cpp \
 OBJ_FILES = $(addprefix $(OBJ_FOLDER)/, $(SRC_FILES:.cpp=.o))
 
 CXX = g++
-CXXFLAGS = -g -Wall -Wextra -Werror -std=c++17
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(OBJ_FOLDER)/%.o: $(SRC_FOLDER)/%.cpp $(OBJ_FOLDER)
+$(OBJ_FOLDER)/%.o: $(SRC_FOLDER)/%.cpp | $(OBJ_FOLDER)
 	$(CXX) $(CXXFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(OBJ_FOLDER):
